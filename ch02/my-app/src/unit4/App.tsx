@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 
+// "hook" 
 // props
 // state => useState triggers render()
 
