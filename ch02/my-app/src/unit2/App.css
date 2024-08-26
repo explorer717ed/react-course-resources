@@ -1,0 +1,10 @@
+.headline{
+ color: teal;
+}
+
+.header{
+  background: salmon;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+}
