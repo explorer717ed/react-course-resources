@@ -21,10 +21,6 @@ const Main: React.FC = () => {
   }
 
   
-
-  useEffect(()=>{
-    // getUser(1)
-  }, [])
   return (
     <main>
       <button onClick={() => getUser(1)}>Post 1</button>
