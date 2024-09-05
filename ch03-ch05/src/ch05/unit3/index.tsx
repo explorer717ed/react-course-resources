@@ -13,8 +13,14 @@ const App: React.FC = () => {
   const aa = 1000
 
   const memoObj = useMemo(() => {
-    return () => {}
+    const obj = { name: 'bruce', data: {}}
+    return obj
   }, [])
+
+  useEffect(()=>{
+    console.log('useEffect cb');
+    
+  }, [memoObj])
 
   const memoFunc1 = useCallback(function() {
     // TODO del
