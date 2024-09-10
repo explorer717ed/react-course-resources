@@ -1,10 +1,24 @@
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { del } from "../slices/todo";
+import { useGetTodosQuery } from "../services/todoApi";
 
 const List: React.FC = () => {
   const reducerTodo = useAppSelector(state => state.todos)
   const dispatch = useAppDispatch()
   const listTodo = reducerTodo.listTodo
+
+  const {
+    data = [],
+    isLoading,
+    isSuccess,
+    isError,
+    error
+  } = useGetTodosQuery('1')
+
+  console.log('data', data);
+  console.log('error', error);
+  console.log('isLoading', isLoading);
+  
   
   const handleDel = (i: number) => {
     dispatch(del(i))
@@ -21,6 +35,14 @@ const List: React.FC = () => {
         })
       }
     </ul>
+    {
+      isLoading 
+        ? <p>loading...</p>
+        : <p>
+          userId: {data.userId} <br/>
+          title: {data.title} <br/>
+        </p>
+    }
   </div>
 }
 
